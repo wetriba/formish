@@ -395,7 +395,7 @@ class CollectionFieldsWrapper(ObjectWrapper):
     """
     collection = None
     def __init__(self, collection):
-        ObjectWrapper.__init__(self, iter(collection.collection_fields()))
+        ObjectWrapper.__init__(self, list(collection.collection_fields()))
         self.collection = collection
 
     def __call__(self):
