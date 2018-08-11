@@ -18,7 +18,7 @@ class FileSystemHeaderedFilestore(object):
     XXX file ownership?
     """
 
-    def __init__(self, root_dir, mode=0660):
+    def __init__(self, root_dir, mode=0o660):
         """
         Create a new storage space.
 
