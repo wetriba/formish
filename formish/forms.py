@@ -1125,7 +1125,7 @@ class Form(object):
         data = self.get_unvalidated_data(self._request_data, raise_exceptions=False, skip_read_only_defaults=skip_read_only_defaults)
         try:
             self.structure.attr.validate(data)
-        except schemaish.attr.Invalid, e:
+        except schemaish.attr.Invalid as e:
             for key, value in e.error_dict.items():
                 if key not in self.errors:
                     self.errors[key] = value

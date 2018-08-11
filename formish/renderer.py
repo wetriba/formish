@@ -29,6 +29,6 @@ try:
 
     _default_renderer = Renderer()
 
-except ImportError, e:
+except ImportError as e:
     _default_renderer = None
 

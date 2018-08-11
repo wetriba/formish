@@ -342,7 +342,7 @@ class SequenceDefault(Container):
                 except (KeyError, IndexError):
                     d = None
                 request_data[f.nodename] = f.widget.to_request_data(f, d)
-            except Invalid, e:
+            except Invalid as e:
                 f.errors[f.name] = e
                 raise
         return request_data
@@ -377,7 +377,7 @@ class SequenceDefault(Container):
                 else:
                     if skip_read_only_default is False:
                         data.append( f.defaults )
-            except ConvertError, e:
+            except ConvertError as e:
                 f.errors = e.message
 
         # Trim empty fields from the end of the list
@@ -441,7 +441,7 @@ class StructureDefault(Container):
         for f in field.fields:
             try:
                 request_data[f.nodename] = f.widget.to_request_data(f, data.get(f.nodename))
-            except Invalid, e:
+            except Invalid as e:
                 f.errors[f.name] = e.message
                 raise
         return request_data
@@ -475,7 +475,7 @@ class StructureDefault(Container):
                 else:
                     if skip_read_only_defaults is False:
                         data[f.nodename] = f.defaults
-            except ConvertError, e:
+            except ConvertError as e:
                 f.errors = e.message
         
         return data
