@@ -28,7 +28,7 @@ class Request(object):
             if item_key.isdigit():
                 return []
             return {}
-        return unflatten(self.POST.dict_of_lists().iteritems(), container_factory=container_factory)
+        return unflatten(self.POST.dict_of_lists().items(), container_factory=container_factory)
         
             
 class TestFormBuilding(unittest.TestCase):

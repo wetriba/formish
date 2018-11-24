@@ -817,7 +817,7 @@ class ErrorDict(dict):
             yield (key, self[key])
 
     def items(self):
-        return list(self.iteritems())
+        return list(self.items())
 
     def __iter__(self):
         for field in self.form.allfields:
