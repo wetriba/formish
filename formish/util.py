@@ -9,6 +9,12 @@ import urllib
 _IDENTIFIER_REGEX = re.compile('^[a-zA-Z_][a-zA-Z0-9_]*$')
 
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
+
 def title_from_name(name):
     """
     Create a title from an attribute name.

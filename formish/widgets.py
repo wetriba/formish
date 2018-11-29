@@ -18,6 +18,13 @@ from validatish import Invalid
 
 UNSET = object()
 
+
+try:
+    basestring
+except NameError:
+    basestring = str
+
+
 def recursive_convert_sequences(data):
     """
     recursively applies ``convert_sequences``

@@ -18,6 +18,12 @@ from formish.renderer import _default_renderer
 UNSET = object()
 
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
+
 def mroattrs(cls, attr):
     """
     Yield the values of class attributes that were changed according to the
