@@ -84,13 +84,13 @@ class Test(unittest.TestCase):
     def assertIdAttrHasValue(self, f, id, attr, v):
         soup = BeautifulSoup(f())
         s = soup.find(id=id)
-        assert s.has_key(attr)
+        assert attr in s
         self.assertEquals(s[attr],v)
 
     def assertIdAttrHasNoValue(self, f, id, attr):
         soup = BeautifulSoup(f())
         s = soup.find(id=id)
-        assert not s.has_key(attr)
+        assert attr not in s
 
     def assertRaisesValidationError(self,f):
         r = self.request(dotted({}))

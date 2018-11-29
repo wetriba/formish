@@ -1167,7 +1167,7 @@ class Form(object):
         """
         data = dotted({})
         for key, value in self.item_data.items():
-            if name is not None and value.has_key(name):
+            if name is not None and name in value:
                 data[key] = value[name]
             else:
                 data[key] = value

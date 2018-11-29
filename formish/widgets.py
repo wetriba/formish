@@ -57,7 +57,7 @@ class Widget(object):
         self.empty = k.get('empty',None)
         self.readonly = k.get('readonly',False)
         self.converter_options = k.get('converter_options', {})
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.converter_options['delimiter'] = ','
     
 
@@ -121,7 +121,7 @@ class Input(Widget):
     def __init__(self, **k):
         self.strip = k.pop('strip', True)
         Widget.__init__(self, **k)
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.converter_options['delimiter'] = ','
 
     def from_request_data(self, field, request_data):
@@ -173,7 +173,7 @@ class CheckedPassword(Input):
         self.css_class = k.pop('css_class', None)
         self.confirm_label = k.pop('confirm_label',None)
         Input.__init__(self, **k)
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.empty.converter_options['delimiter'] = ','
             
     def to_request_data(self, field, data):
@@ -229,7 +229,7 @@ class CheckedInput(Input):
         self.css_class = k.pop('css_class', None)
         self.confirm_label = k.pop('confirm_label',None)
         Input.__init__(self, **k)
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.converter_options['delimiter'] = ','
             
     def to_request_data(self, field, data):
@@ -498,7 +498,7 @@ class TextArea(Input):
         self.rows = k.pop('rows', None)
         self.strip = k.pop('strip', True)
         Input.__init__(self, **k)
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.converter_options['delimiter'] = '\n'
     
     def to_request_data(self, field, data):
@@ -590,7 +590,7 @@ class DateParts(Widget):
         self.strip = k.pop('strip', True)
         self.day_first = k.pop('day_first', None)
         Widget.__init__(self, **k)
-        if not self.converter_options.has_key('delimiter'):
+        if 'delimiter' not in self.converter_options:
             self.converter_options['delimiter'] = ','
 
         
