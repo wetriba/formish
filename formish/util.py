@@ -34,7 +34,7 @@ def title_from_name(name):
         last = None
 
         while 1:
-            ch = it.next()
+            ch = next(it)
             if ch == '_':
                 if last != '_':
                     yield ' '
