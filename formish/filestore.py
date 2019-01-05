@@ -69,10 +69,9 @@ class FileSystemHeaderedFilestore(object):
             if isinstance(headers, dict):
                headers = headers.items()
             for name, value in headers:
-                if isinstance(value, unicode):
-                    value = value.encode('utf-8')
-                dest.write('%s: %s\n' % (name, value))
-            dest.write('\n')
+                line = '%s: %s\n' % (name, value)
+                dest.write(line.encode('utf-8'))
+            dest.write(b'\n')
             _copyfile.copyfileobj(src, dest)
         finally:
             dest.close()
