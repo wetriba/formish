@@ -735,7 +735,7 @@ class Sequence(Collection):
         else:
             num_fields = len(self.form._request_data.get(self.name, []))
 
-        for num in xrange(num_fields):
+        for num in range(num_fields):
             field = self.bind(num, self.attr.attr)
             yield field
             

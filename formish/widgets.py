@@ -390,7 +390,7 @@ class SequenceDefault(Container):
         # Trim empty fields from the end of the list
         if self.strip_empty:
             n = None
-            for n in xrange(len(data),0,-1):
+            for n in range(len(data),0,-1):
                 if not self.empty_checker(data[n-1]):
                     break
             else:
