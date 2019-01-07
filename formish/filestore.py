@@ -47,8 +47,8 @@ class FileSystemHeaderedFilestore(object):
             line = f.readline().strip()
             if not line:
                 break
-            name, value = line.split(': ', 1)
-            headers.append((name, value.decode('utf-8')))
+            name, value = line.split(b': ', 1)
+            headers.append((name.decode('ascii'), value.decode('utf-8')))
         return headers, f
 
     def put(self, key, headers, src):
