@@ -24,6 +24,12 @@ except NameError:
     basestring = str
 
 
+try:
+    unicode
+except NameError:
+    unicode = str
+
+
 def mroattrs(cls, attr):
     """
     Yield the values of class attributes that were changed according to the
