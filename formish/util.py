@@ -3,7 +3,10 @@ General purpose utility module.
 """
 
 import re
-import urllib
+try:
+    from urllib.parse import quote, unquote
+except ImportError:
+    from urllib import quote, unquote  # noqa
 
 
 _IDENTIFIER_REGEX = re.compile('^[a-zA-Z_][a-zA-Z0-9_]*$')
@@ -110,14 +113,14 @@ def encode_file_resource_path(name, key):
             path = ''.join(['@@', key[1:]])
         else:
             path = key
-    return urllib.quote(path, '/@')
+    return quote(path, '/@')
 
 
 def decode_file_resource_path(path):
     """
     Decode a file resource path to a file store name and key.
     """
-    path = urllib.unquote(path)
+    path = unquote(path)
     if path[:2] == '@@':
         return None, ''.join(['@', path[2:]])
     elif path[:1] == '@':
