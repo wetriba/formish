@@ -152,6 +152,7 @@ class TemplatedString(object):
             return True
         else:
             return False
+    __bool__ = __nonzero__
 
     def __call__(self):
         widget_type, widget = self.obj.widget.template.split('.')
