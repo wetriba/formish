@@ -37,7 +37,10 @@ def title_from_name(name):
         last = None
 
         while 1:
-            ch = next(it)
+            try:
+                ch = next(it)
+            except StopIteration:
+                return
             if ch == '_':
                 if last != '_':
                     yield ' '
