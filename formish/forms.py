@@ -6,7 +6,7 @@ import re
 import warnings
 
 from peak.util.proxies import ObjectWrapper
-from webob.multidict import UnicodeMultiDict
+from webob.multidict import MultiDict
 
 import schemaish, validatish
 from formish import util
@@ -1072,8 +1072,8 @@ class Form(object):
         self._request = request
         request_data = getattr(request, self.method.upper())
         # Decode request data according to the request's charset.
-        request_data = UnicodeMultiDict(request_data,
-                                        encoding=util.get_post_charset(request))
+        request_data = MultiDict(
+            request_data, encoding=util.get_post_charset(request))
         # Remove the sequence factory data from the request
         for k in request_data.keys():
             if '*' in k:
