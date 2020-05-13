@@ -1,0 +1,3 @@
+recursive-include formish/css *.css
+recursive-include formish/js *.js
+recursive-include formish/templates *.html
