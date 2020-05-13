@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os, glob
 
-version = '0.8.6'
+version = '0.8.6+wetriba1'
 
 setup(name='formish',
       version=version,
